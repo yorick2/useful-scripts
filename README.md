@@ -42,7 +42,7 @@ This drops the tables in the current local database. So can be used on a cron to
 
 ## Bash
 ### remove xml comments
-[bash/remove_xml_comments.xml](../master/bash/ remove_xml_comments.xml)
+[bash/remove_xml_comments.xml](../master/bash/remove_xml_comments.xml)
 
 remove comments from xml files in a folder
 

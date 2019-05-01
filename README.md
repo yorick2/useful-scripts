@@ -72,13 +72,6 @@ into <!--blah> text </bah-->
 
 
 ## Php
-
-### Link list of files from folder
-[php/linkListFilesFromFolder.php](../master/php/linkListFilesFromFolder.php)
-
-Creates a list of links to files from a folder of html/php/... files.
-
-
 ### check images in a csv exists 
 [php/checkCsvImagesExist.php](../master/php/checkCsvImagesExist.php)
 
@@ -101,6 +94,7 @@ It gives a comma separated output with source file location and destination file
 running the below from shell
 
 ```php -f copyFilesToOneLocation.php > fileMapping.csv```
+
 
 ### Look for images not found in a csv when provided with a folder of images.
 [php/csvImageFileExists.php](../master/php/csvImageFileExists.php)
@@ -126,8 +120,10 @@ $fields = [
 ];
  ```
 
+
 ### compare two site maps, to help identify missing/renamed pages for seo
-[php/site-map-comparison.php](../master/php/site-map-comparison.php)
+[php/compareSiteMaps.php](../master/php/compareSiteMaps.php)
+
 
 #### Instructions
 make a copy of the two sitemaps and name them 'newSitemap.xml' & 'oldSitemap.xml', in the same folder as the file
@@ -135,6 +131,18 @@ make a copy of the two sitemaps and name them 'newSitemap.xml' & 'oldSitemap.xml
 run php compareSiteMaps.php
 
 it will output to the screen
+
+
+### get an array of classes from a given folder that implement an interface
+[php/getClassesUsingInterface.php](../master/php/getClassesUsingInterface.php)
+This assumes psr4 is followed .ie the names are the same as their class
+
+
+### Link list of files from folder
+[php/linkListFilesFromFolder.php](../master/php/linkListFilesFromFolder.php)
+
+Creates a list of links to files from a folder of html/php/... files.
+
 
 ### get array of all filter combinations for multiple options of a filter
 [php/multiOptionFilter.php](../master/php/multiOptionFilter.php)

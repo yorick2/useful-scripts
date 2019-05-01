@@ -1,4 +1,25 @@
 # useful-scripts
+## Bash
+### remove xml comments
+file: remove_xml_comments.xml
+remove comments from xml files in a folder
+
+### question loop
+file:questionLoop.sh
+an example of a question which will ask again unless an acceptable response given
+
+### run through a list of file to copy and a list of files to symlink
+file: moveFilesForRocketeer.sh
+run though a ist of files to copy and files to symlink
+
+### convert xml comments into valid ones 
+file: make_xml_valid.sh
+stop varien (or similar frameworks) throwing xml validator warnings from comments, by converting <!--< into <!-- and >--> into --!> in all xml files from the folder it is in.
+e.g.
+turns all <!-- <blah> text </blah> -->
+into <!--blah> text </bah-->
+
+
 
 ## Php
 

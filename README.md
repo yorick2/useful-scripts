@@ -2,31 +2,31 @@
 ## sql bash
 
 ### import all sql files in a folder
-file:batchImportDatabasesFromFolder.sh
+[file:sqlBash/batchImportDatabasesFromFolder.sh](../master/sqlBash/batchImportDatabasesFromFolder.sh)
 
 ### uncompress and import all compressed sql database files in a folder with a given extension
-file:batchImportCompressedDatabasesFromFolder.sh
+[file:sqlBash/batchImportCompressedDatabasesFromFolder.sh](../master/sqlBash/batchImportCompressedDatabasesFromFolder.sh)
 
 ### dump all databases from a mysql connection
-file:downloadAllDatabases.sh
+[file:sqlBash/downloadAllDatabases.sh](../master/sqlBash/downloadAllDatabases.sh)
 
 ### dump all databases using a cron
-file:downloadAllDatabasesViaCron.sh
+[file:sqlBash/downloadAllDatabasesViaCron.sh](../master/sqlBash/downloadAllDatabasesViaCron.sh)
 
 ### drop all database tables for a given atabase
-file:drop_all_tables.sh
+[file:sqlBash/drop_all_tables.sh](../master/sqlBash/drop_all_tables.sh)
 
 ### dump a magento 1 database without using n98-magerun
-file:magentoDbDumpWithoutN98.sh
+[file:sqlBash/magentoDbDumpWithoutN98.sh](../master/sqlBash/magentoDbDumpWithoutN98.sh)
 
 ### export databases in a list to current machine using an ssh tunnel 
-file:streamAllDatabasesFromListToHere.sh
+[file:sqlBash/streamAllDatabasesFromListToHere.sh](../master/sqlBash/streamAllDatabasesFromListToHere.sh)
 
 ### export all databases from a server to the current machine using an ssh tunnel
-file:streamAllDatabasesHere.sh
+[file:sqlBash/streamAllDatabasesHere.sh](../master/sqlBash/streamAllDatabasesHere.sh)
 
 ### transfer a database from one magento install (remote) to another installation (local)
-file:updateMagentoDatabase.sh
+[file:sqlBash/updateMagentoDatabase.sh](../master/sqlBash/updateMagentoDatabase.sh)
 
 Transfer a database from one magento install (remote) to another installation (local)
 
@@ -34,22 +34,22 @@ This drops the tables in the current local database. So can be used on a cron to
 
 ## Bash
 ### remove xml comments
-file: remove_xml_comments.xml
+[file:bash/ remove_xml_comments.xml](../master/bash/ remove_xml_comments.xml)
 
 remove comments from xml files in a folder
 
 ### question loop
-file:questionLoop.sh
+[file:bash/questionLoop.sh](../master/bash/questionLoop.sh)
 
 an example of a question which will ask again unless an acceptable response given
 
 ### run through a list of file to copy and a list of files to symlink
-file: moveFilesForRocketeer.sh
+[file:bash/ moveFilesForRocketeer.sh](../master/bash/ moveFilesForRocketeer.sh)
 
 run though a ist of files to copy and files to symlink
 
 ### convert xml comments into valid ones 
-file: make_xml_valid.sh
+[file:bash/ make_xml_valid.sh](../master/bash/ make_xml_valid.sh)
 
 stop varien (or similar frameworks) throwing xml validator warnings from comments, by converting <!--< into <!-- and >--> into --!> in all xml files from the folder it is in.
 e.g.
@@ -61,13 +61,13 @@ into <!--blah> text </bah-->
 ## Php
 
 ### Link list of files from folder
-folder: linkListFilesFromFolder
+[file:php/ linkListFilesFromFolder.php](../master/php/ linkListFilesFromFolder.php)
 
 Creates a list of links to files from a folder of html/php/... files.
 
 
 ### check images in a csv exists 
-folder: checkCsvImagesExist
+[file:php/ checkCsvImagesExist.php](../master/php/ checkCsvImagesExist.php)
 
 run from command line
 
@@ -79,7 +79,7 @@ accepted image columns: 'image','small_image','thumbnail','media_gallery'
 
 
 ### copy files from all subfolders of a folder into a new folder
-folder: copyFilesToOneLocation
+[file:php/ copyFilesToOneLocation.php](../master/php/ copyFilesToOneLocation.php)
 
 A script to get all files from a folder recursively and copy those files into another folder and will rename files adding a no. to the end if required. It is limited to 1000 files with the same original name.
 
@@ -89,7 +89,7 @@ php -f copyFilesToOneLocation.php > fileMapping.csv
 
 
 ### compare two site maps, to help identify missing/renamed pages for seo
-folder: site-map-comparison
+[file:php/ site-map-comparison.php](../master/php/ site-map-comparison.php)
 #### Instructions
 make a copy of the two sitemaps and name them 'newSitemap.xml' & 'oldSitemap.xml', in the same folder as the file
 

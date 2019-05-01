@@ -1,0 +1,5 @@
+*.swp
+*.idea
+*.swp
+.DS_Store
+/nbproject

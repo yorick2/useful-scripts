@@ -1,4 +1,35 @@
 # useful-scripts
+## sql bash
+
+### import all sql files in a folder
+file:batchImportDatabasesFromFolder.sh
+
+### uncompress and import all compressed sql database files in a folder with a given extension
+file:batchImportCompressedDatabasesFromFolder.sh
+
+### dump all databases from a mysql connection
+file:downloadAllDatabases.sh
+
+### dump all databases using a cron
+file:downloadAllDatabasesViaCron.sh
+
+### drop all database tables for a given atabase
+file:drop_all_tables.sh
+
+### dump a magento 1 database without using n98-magerun
+file:magentoDbDumpWithoutN98.sh
+
+### export databases in a list to current machine using an ssh tunnel 
+file:streamAllDatabasesFromListToHere.sh
+
+### export all databases from a server to the current machine using an ssh tunnel
+file:streamAllDatabasesHere.sh
+
+### transfer a database from one magento install (remote) to another installation (local)
+file:updateMagentoDatabase.sh
+transfer a database from one magento install (remote) to another installation (local)
+This drops the tables in the current local database. So can be used on a cron to keep to db's in sync, but only if the local db's changes are not required to be kept.
+
 ## Bash
 ### remove xml comments
 file: remove_xml_comments.xml

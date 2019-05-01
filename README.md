@@ -1,5 +1,5 @@
 # useful-scripts
-## sql bash
+## Sql Bash
 
 ### import all sql files in a folder
 [sqlBash/batchImportDatabasesFromFolder.sh](../master/sqlBash/batchImportDatabasesFromFolder.sh)
@@ -38,7 +38,8 @@
 
 Transfer a database from one magento install (remote) to another installation (local)
 
-This drops the tables in the current local database. So can be used on a cron to keep to db's in sync, but only if the local db's changes are not required to be kept.
+This drops the tables in the current local database. So can be used on a cron to keep to db's in sync, but only if the 
+local db's changes are not required to be kept.
 
 ## Bash
 ### remove xml comments
@@ -62,7 +63,8 @@ run though a ist of files to copy and files to symlink
 ### convert xml comments into valid ones 
 [bash/make_xml_valid.sh](../master/bash/make_xml_valid.sh)
 
-stop varien (or similar frameworks) throwing xml validator warnings from comments, by converting <!--< into <!-- and >--> into --!> in all xml files from the folder it is in.
+stop varien (or similar frameworks) throwing xml validator warnings from comments, by converting <!--< into <!-- 
+and >--> into --!> in all xml files from the folder it is in.
 e.g.
 turns all <!-- <blah> text </blah> -->
 into <!--blah> text </bah-->
@@ -92,12 +94,37 @@ accepted image columns: 'image','small_image','thumbnail','media_gallery'
 ### copy files from all subfolders of a folder into a new folder
 [php/copyFilesToOneLocation.php](../master/php/copyFilesToOneLocation.php)
 
-A script to get all files from a folder recursively and copy those files into another folder and will rename files adding a no. to the end if required. It is limited to 1000 files with the same original name.
+A script to get all files from a folder recursively and copy those files into another folder and will rename files
+adding a no. to the end if required. It is limited to 1000 files with the same original name.
 
-It gives a comma separated output with source file location and destination filename. This can be output into a file running the below from shell
+It gives a comma separated output with source file location and destination filename. This can be output into a file
+running the below from shell
 
-php -f copyFilesToOneLocation.php > fileMapping.csv
+```php -f copyFilesToOneLocation.php > fileMapping.csv```
 
+### Look for images not found in a csv when provided with a folder of images.
+[php/csvImageFileExists.php](../master/php/csvImageFileExists.php)
+
+It works with multiple image column, including columns like 'additional_images' where the cell can have multiple images 
+split by a delimiter.
+ 
+$fields should be an array where the key is the column name and the "cell delimiter" mentioned above as the value.
+
+e.g. the below would have a cell delimiter of , and file delimiter of ;
+```
+sku;website_id;additional_images;additional_image_labels
+123a;1;blue.jpg,red.jpg;blue,red
+124a;1;blue.jpg,red.jpg;blue,red
+```
+
+and would have:
+```
+$fileDelimiter = ';';
+$hasHeader = true;
+$fields = [
+'additional_images' => ',' // field name => row delimiter (empty string for none)
+];
+ ```
 
 ### compare two site maps, to help identify missing/renamed pages for seo
 [php/site-map-comparison.php](../master/php/site-map-comparison.php)
@@ -108,3 +135,6 @@ make a copy of the two sitemaps and name them 'newSitemap.xml' & 'oldSitemap.xml
 run php compareSiteMaps.php
 
 it will output to the screen
+
+### get array of all filter combinations for multiple options of a filter
+[php/multiOptionFilter.php](../master/php/multiOptionFilter.php)

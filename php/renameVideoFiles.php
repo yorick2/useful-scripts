@@ -66,6 +66,11 @@ class renameVideoFiles
      */
     protected $keepFolderStructure = false;
 
+    /**
+     * @var bool
+     * include the original name at the end of the file
+     */
+    protected $includeOriginalName = true;
 
     public function execute(){
         foreach (glob($this->fileFolder.'/*.'.$this->fileExtension) as $filename) {
@@ -103,6 +108,7 @@ class renameVideoFiles
      * @throws Exception
      */
     protected function getNewName($filename, $formattedDate, $i = 0){
+        $suffix = '';
         if($i>100){
             throw new Exception('getNewName error too many iterations');
         }
@@ -110,10 +116,13 @@ class renameVideoFiles
         if(!file_exists($folder)){
             mkdir($folder);
         }
+        if($this->includeOriginalName){
+            $suffix = '---'.preg_replace("/.*\/|\.[^.\/]*$/", '', $filename ).'---';
+        }
         if($i==0) {
-            $newFileLocation = "{$folder}/{$this->filenamePrefix}{$formattedDate}.{$this->fileExtension}";
+            $newFileLocation = "{$folder}/{$this->filenamePrefix}{$formattedDate}{$suffix}.{$this->fileExtension}";
         }else{
-            $newFileLocation = "{$folder}/{$this->filenamePrefix}{$formattedDate}-{$i}.{$this->fileExtension}";
+            $newFileLocation = "{$folder}/{$this->filenamePrefix}{$formattedDate}{$suffix}-{$i}.{$this->fileExtension}";
         }
         if(file_exists($newFileLocation)){
             $newFileLocation = $this->getNewName($filename, $formattedDate, $i+1);

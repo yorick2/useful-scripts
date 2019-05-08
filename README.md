@@ -157,7 +157,7 @@ $filenamePrefix can be changed to add a prefix to the names of the renamed files
 
 $includeOriginalName can be set to true to include the original name at the end of the filename
 
-This can move the files into a destination folder and/or keep the current folder structure if the relevant class
+This script can move the files into a destination folder and/or keep the current folder structure if the relevant class
 variables are set.
 
 If the $destinationFolder is not set then the files are not moved but renamed.

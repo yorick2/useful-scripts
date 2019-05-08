@@ -147,7 +147,7 @@ Creates a list of links to files from a folder of html/php/... files.
 
 
 ### Rename video files to the date/time recorded based on meta data in the modd files.
-[php/renameVideoFiles.php](../master/php/renameVideoFiles.php)
+[php/renameVideoFilesFromXmlData.php](../master/php/renameVideoFilesFromXmlData.php)
 
 Rename video files to the date/time recorded based on meta data in the modd files. Adjust the protected variables
 for your requirements. Please use on copies of your files, for safety and not the originals. As misconfiguration will

@@ -4,7 +4,23 @@
  * Class renameVideoFiles
  * Rename video files to the date/time recorded based on meta data in the modd files. Adjust the protected variables
  * for your requirements. Please use on copies of your files, for safety and not the originals. As misconfiguration will
- * cause the data files to be not named the same as the video files and reverting will be difficult
+ * cause the data files to be not named the same as the video files and reverting will be difficult.
+ *
+ * $filenamePrefix can be changed to add a prefix to the names of the renamed files
+ *
+ * This can move the files into a destination folder and/or keep the current folder structure if the relevant class
+ * variables are set.
+ *
+ * If the $destinationFolder is not set then the files are not moved but renamed.
+ *
+ * If the $destinationFolder is set but $keepFolderStructure is false then all files are moved into the
+ * $destinationFolder.
+ *
+ * If $keepFolderStructure is true then the relative path to the original file from the $fileFolder path is used and the
+ * moved to that location relative to the destination path. e.g. if $fileFolder='video', $keepFolderStructure=true,
+ * $destinationFolder='collection' and the original file is video/folder/folderTwo/test.mpg then the destination
+ * will be collection/folder/folderTwo/test.mpg
+ *
  */
 class renameVideoFiles
 {
@@ -12,7 +28,7 @@ class renameVideoFiles
      * @var string
      * 'video/*' would be all sub-folders in teh video folder
      */
-    protected $fileFolder = 'video/*';
+    protected $fileFolder = './*';
 
     /**
      * @var string
@@ -27,11 +43,13 @@ class renameVideoFiles
     /**
      * @var string
      * This string goes before the date in the name of the new file
+     * e.g. 'example-' would give a filename of example-2009-03-20-15:06:00.mpg
      */
-    protected $filenamePrefix = 'canoeing-';
+    protected $filenamePrefix = '';
 
     /**
      * @var string
+     * This will give a format of 2009-03-20-15:06:00
      */
     protected $dateFormat = 'Y-m-d-H:i:s';
 
@@ -39,11 +57,12 @@ class renameVideoFiles
      * @var string
      * set as false here to rename and not move to the destination folder
      */
-    protected $destinationFolder = 'video/collate';
+    protected $destinationFolder = '';
 
     /**
      * @var bool
-     * keep the folder structure inside the destination folder?
+     * keep the folder structure inside the destination folder? e.g. if the file was in video/folder/folderTwo/test.mpg
+     * then the file would be copied to $this->>destination/folder/folderTwo/test.mpg if $fileFolder is 'video'
      */
     protected $keepFolderStructure = false;
 

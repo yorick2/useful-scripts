@@ -124,9 +124,7 @@ $fields = [
 ### compare two site maps, to help identify missing/renamed pages for seo
 [php/compareSiteMaps.php](../master/php/compareSiteMaps.php)
 
-
-#### Instructions
-make a copy of the two sitemaps and name them 'newSitemap.xml' & 'oldSitemap.xml', in the same folder as the file
+Make a copy of the two sitemaps and name them 'newSitemap.xml' & 'oldSitemap.xml', in the same folder as the file
 
 run php compareSiteMaps.php
 
@@ -146,3 +144,26 @@ Creates a list of links to files from a folder of html/php/... files.
 
 ### get array of all filter combinations for multiple options of a filter
 [php/multiOptionFilter.php](../master/php/multiOptionFilter.php)
+
+
+### Rename video files to the date/time recorded based on meta data in the modd files.
+[php/renameVideoFiles.php](../master/php/renameVideoFiles.php)
+
+Rename video files to the date/time recorded based on meta data in the modd files. Adjust the protected variables
+for your requirements. Please use on copies of your files, for safety and not the originals. As misconfiguration will
+cause the data files to be not named the same as the video files and reverting will be difficult.
+
+$filenamePrefix can be changed to add a prefix to the names of the renamed files
+
+This can move the files into a destination folder and/or keep the current folder structure if the relevant class
+variables are set.
+
+If the $destinationFolder is not set then the files are not moved but renamed.
+
+If the $destinationFolder is set but $keepFolderStructure is false then all files are moved into the
+$destinationFolder. 
+
+If $keepFolderStructure is true then the relative path to the original file from the $fileFolder path is used and the
+moved to that location relative to the destination path. e.g. if $fileFolder='video', $keepFolderStructure=true,
+$destinationFolder='collection' and the original file is video/folder/folderTwo/test.mpg then the destination
+will be collection/folder/folderTwo/test.mpg

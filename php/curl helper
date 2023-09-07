@@ -1,0 +1,83 @@
+<?php
+
+namespace App\Models\Helper;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class CurlHelper extends Model
+{
+    use HasFactory;
+
+    /**
+     * Send a POST requst using cURL
+     * @param string $url to request
+     * @param array $post values to send
+     * @param array $options for cURL
+     * @return string
+     */
+    static function post($url, array $post = NULL, array $options = array())
+    {
+        $defaults = array(
+            CURLOPT_POST => 1,
+            CURLOPT_HEADER => 0,
+            CURLOPT_URL => $url,
+            CURLOPT_FRESH_CONNECT => 1,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_FORBID_REUSE => 1,
+            CURLOPT_TIMEOUT => 4,
+            CURLOPT_POSTFIELDS => http_build_query($post)
+        );
+
+        $ch = curl_init();
+        curl_setopt_array($ch, ($options + $defaults));
+        if (!$result = curl_exec($ch)) {
+            trigger_error(curl_error($ch));
+        }
+        curl_close($ch);
+        return $result;
+    }
+
+    /**
+     * Send a GET request using cURL
+     * @param string $url to request
+     * @param array $get values to send
+     * @param array $options for cURL
+     * @return string
+     */
+    static function get(string $url, array $get = array(), array $options = array())
+    {
+        $defaults = array(
+            CURLOPT_URL => $url . (strpos($url, '?') === FALSE ? '?' : '') . http_build_query($get),
+            CURLOPT_HEADER => 0,
+            CURLOPT_RETURNTRANSFER => TRUE,
+            CURLOPT_TIMEOUT => 4
+        );
+
+        $ch = curl_init();
+        curl_setopt_array($ch, ($options + $defaults));
+        if (!$result = curl_exec($ch)) {
+            trigger_error(curl_error($ch));
+        }
+        curl_close($ch);
+        return $result;
+    }
+
+    /**
+     * @param string $url
+     * @param string $destinationFilepath
+     * @return mixed
+     */
+    static function getFile(string $url, string $destinationFilepath){
+        $ch = curl_init($url);
+        $fp = fopen($destinationFilepath, 'wb');
+        curl_setopt($ch, CURLOPT_FILE, $fp);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        fclose($fp);
+        return $httpcode;
+    }
+
+}

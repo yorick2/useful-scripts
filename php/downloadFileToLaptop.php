@@ -1,3 +1,4 @@
+<?php
 /**
  * @param string $filePath
  * @param string $fileType
